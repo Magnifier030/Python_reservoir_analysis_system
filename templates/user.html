@@ -1,0 +1,54 @@
+{% extends "base/base.html" %}
+{% block title %}使用者{% endblock %}
+
+{% block headmessage %}
+<h1>使用者</h1>
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col">
+{% if accountBool %}
+    <h2 style="padding-bottom: 20px;">你好 {{name}}! 以下是您的資料</h2>
+    <table class="table table-striped">
+        <tr>
+            <td>用水量</td>
+            <td>{{waste}}</td>
+        </tr>
+        <tr>
+            <td>附近水庫合計水量</td>
+            <td>{{allWater}}</td>
+        </tr>
+        <tr>
+            <td>警報</td>
+            <td>{{alarm}}</td>
+        </tr>
+    </table>
+{% else %}
+    <form>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">帳號</label>
+            <input class="form-control" type="text" name="input_account" id="input_account" aria-label="readonly input example">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">密碼</label>
+            <input type="password" name="input_password" id="input_password" class="form-control" aria-labelledby="passwordHelpBlock">
+        </div>
+        <div class="col-12" id="B">
+            <ul>
+                <li>
+                    <input type="submit">
+                </li>
+                <li>
+                    <button><a href="./setUp/" style="text-decoration:none; color: black;">註冊</a></button>
+                </li>
+            </ul>
+        </div>
+        </form>
+{% endif%}
+</div>
+<div class="col-2"></div>
+</div>
+{% endblock %}

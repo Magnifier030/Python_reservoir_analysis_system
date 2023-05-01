@@ -1,0 +1,81 @@
+{% extends "base/base.html" %}
+{% block title %}註冊{% endblock %}
+
+{% block headmessage %}
+<h1>註冊</h1>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col">
+    <form class="row g-3 needs-validation" name="selectForm" id="selectForm" novalidate>
+        <div class="col-md-4">
+        <label for="validationCustom01" class="form-label" >姓名</label>
+        <input type="text" class="form-control" id="name" name="name" value="{{name}}" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        </div>
+        <div class="col-md-6">
+        <label for="validationCustom03" class="form-label" >帳號</label>
+        <input type="text" class="form-control" id="account" name="account" value="{{account}}" required>
+        <div class="invalid-feedback">
+            Please provide a valid city.
+        </div>
+        </div>
+        <div class="col-md-6">
+            <label for="validationCustom03" class="form-label">密碼</label>
+            <input type="text" class="form-control" id="password" name="password" value="{{password}}" required>
+            <div class="invalid-feedback">
+                Please provide a valid city.
+            </div>
+            </div>
+        <div class="col-md-3">
+        <label for="validationCustom04" class="form-label">城市</label>
+        <select class="form-select" id="city" name="city" onchange="foo()" required>
+            {% if citySelected == "" %}
+            <option selected>請選擇城市</option>
+            {% else %}
+            <option>請選擇城市</option>
+            {% endif %}
+            
+            {% for city in citys %}
+            {% if city == citySelected %}
+                <option value='{{city}}' selected>{{city}}</option>
+            {% else %}
+                <option value='{{city}}'>{{city}}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+        <div class="invalid-feedback">
+            Please select a valid state.
+        </div>
+        </div>
+        <label for="validationCustom04" class="form-label">地區</label>
+        <select class="form-select" id="river" name="river" required>
+            {% if citySelected == "" %}
+              <option selected>請選擇地區</option>
+              {% else %}
+                <option>請選擇地區</option>
+              {% endif %}
+
+              {% for river in rivers %}
+                {% if river == riverSelected %}
+                  <option value='{{river}}' selected>{{river}}</option>
+                {% else %}
+                  <option value='{{river}}'>{{river}}</option>
+                {% endif %}
+              {% endfor %}
+        </select>
+        <div class="invalid-feedback">
+            Please select a valid state.
+        </div>
+        <div>
+        <button class="btn btn-primary" type="submit" name="alreadySetUp" id="alreadySetUp">Submit form</button>
+        </div>
+    </form>
+    </div>
+    <div class="col-2"></div>
+</div>
+{% endblock %}

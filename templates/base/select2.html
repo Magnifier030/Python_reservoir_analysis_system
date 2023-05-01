@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-2">
+    </div>
+    <div class="col">
+        <form class="d-flex" role="search" id="selectForm">
+          <select onchange="foo()" id="city" name="city" class="form-select" aria-label="Default select example">
+            {% if citySelected == "" %}
+              <option selected>請選擇城市</option>
+            {% else %}
+              <option>請選擇城市</option>
+            {% endif %}
+            
+            {% for city in citys %}
+              {% if city == citySelected %}
+                <option value='{{city}}' selected>{{city}}</option>
+              {% else %}
+                <option value='{{city}}'>{{city}}</option>
+              {% endif %}
+            {% endfor %}
+          </select>
+            <select onchange="foo()" id="river" name="river" class="form-select" aria-label="Default select example">
+              {% if citySelected == "" %}
+              <option selected>請選擇河川</option>
+              {% else %}
+                <option>請選擇河川</option>
+              {% endif %}
+
+              {% for river in rivers %}
+                {% if river == riverSelected %}
+                  <option value='{{river}}' selected>{{river}}</option>
+                {% else %}
+                  <option value='{{river}}'>{{river}}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+        </form>
+    </div>
+    <div class="col-2"></div>
+</div>
+

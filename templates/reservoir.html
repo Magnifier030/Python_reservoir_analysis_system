@@ -1,0 +1,30 @@
+{% extends "base/base.html" %}
+{% block title %}水庫蓄水量{% endblock %}
+
+{% block headmessage %}
+<h1>水庫蓄水量</h1>
+{% endblock %}
+
+{% block content %}
+
+{% include "base/select1.html" %}
+
+<table class="table table-striped">
+    <tr>
+        <td>水庫名稱</td>
+        <td>目前水量</td>
+        <td>總水量</td>
+    </tr>
+    
+    {% for obj in datas %}
+        
+        <tr>
+            <td>{{obj.Reservoir_name}}</td>
+            <td>{{obj.WaterLevel }} (m)</td>
+            <td>{{obj.EffectiveWaterStorageCapacity}} (m³)</td>
+        </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}

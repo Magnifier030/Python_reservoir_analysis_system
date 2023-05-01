@@ -1,0 +1,25 @@
+{% extends "base/base.html" %}
+{% block title %}用戶用水量{% endblock %}
+
+{% block headmessage %}
+<h1>用戶用水量</h1>
+{% endblock %}
+
+{% block content %}
+
+{% include "base/select1.html" %}
+
+<table class="table table-striped">
+    <tr>
+        <td>地區用戶</td>
+        <td>用水量</td>
+    </tr>
+    {% for name, water in datas.items %}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{water}}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
